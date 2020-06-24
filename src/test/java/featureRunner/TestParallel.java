@@ -15,7 +15,7 @@ import java.util.List;
 
 //@RunWith(Karate.class)
 //@KarateOptions(tags = {"~@ignore"})
-public class TestParallel {
+class TestParallel {
     //	  @Karate.Test
     @Test
     void testParallel() {
@@ -23,7 +23,7 @@ public class TestParallel {
 //	        generateReport(results.getReportDir());
 //	        assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
 //		  System.setProperty("karate.env", "demo"); // ensure reset if other tests (e.g. mock) had set env in CI
-        Results results = Runner.path("classpath:cats").tags("@webtest").parallel(5);
+        Results results = Runner.path("classpath:cats").tags("~@ignore").parallel(5);
         generateReport(results.getReportDir());
         Assertions.assertTrue(results.getFailCount() == 0, results.getErrorMessages());
     }
